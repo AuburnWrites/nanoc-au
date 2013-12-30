@@ -3,11 +3,31 @@ html lang="en"
   head
     meta charset="utf-8"
     title
-      = "#{site_title} - #{@item[:title]}"
+      = "#{$settings[:site_title]} - #{@item[:title]}"
     link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
     link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"
     link rel="stylesheet" href="//cdn.auburn.edu/assets/css/default.min.css"
     meta name="generator" content="nanoc #{Nanoc::VERSION}"
+    less:
+      .sidebar {
+        display: block;
+      }
+      @media (min-width: 768px) {
+        html, body, .container {
+          height: 100%;
+        }
+        #content {
+          height: 100%;
+          .sidebar {
+            display: block;
+            height: 100%;
+            &.sidebar-right {
+              border-right: 0px; 
+              border-left: 1px solid #d7d7d7;
+            }
+          }
+        }
+      }
   body
     .container
       #top.row.header-wrap
@@ -32,23 +52,43 @@ html lang="en"
           .title-area
             img class="visible-print" src="//cdn.auburn.edu/assets/img/header-logo-print.png" height="48" width="245" alt="Auburn University Logo"
             .main-heading.hidden-print
-              a href="#"
-                = site_title
+              a href="/"
+                = $settings[:site_title]
             .sub-heading.hidden-print
-              a href="#"
-                = @item[:title]
+              = @item[:title]
+        nav#nav-section.navbar.hidden-print role="navigation"
+          .navbar-brand.collapsed data-toggle="collapse" data-target=".navbar-ex1-collapse"
+            | Main Navigation
+          .collapse.navbar-collapse.navbar-ex1-collapse
+            ul.nav.navbar-nav
+              - for link in $settings[:site_nav]
+                li
+                  a href="#{link[:url]}" 
+                    = link[:text]
       #content.row.row-offcanvas.row-offcanvas-left.content-area
-        #sidebar.hidden-print.col-sm-3.sidebar.sidebar-white.sidebar-offcanvas
-          .sidebar-content
-            ul
-              li
-                a href="#" hey
-              li
-                a href="#" hi
-              li
-                a href="#" sup
         #main.content-division.col-sm-9 role="main"
+          - if @item.path != '/'
+            p#breadcrumbs
+              - for item in breadcrumbs_trail[0...-1]
+                == link_to(item[:title], item)
+                == " &raquo; "
+              = breadcrumbs_trail[-1][:title]
+            h1
+              = @item[:title]
           == yield
+        #sidebar.hidden-print.col-sm-3.sidebar.sidebar-white.sidebar-right
+          .sidebar-content
+            .orange-bar.visible-xs
+            - unless @item.parent.nil?
+              == link_to("Back to " + @item.parent[:title], @item.parent)
+            - unless @item.children.empty?
+              .blue-header 
+                = @item[:title]
+              - for child in @item.children
+                == link_to(child[:title], child)
       #footer.row.footer-wrap.hidden-print
         footer
         .subfooter role="contentinfo"
+    script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+    script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
+    / script src="//cdn.auburn.edu/assets/js/default.min.js"
