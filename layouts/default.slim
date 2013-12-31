@@ -3,31 +3,12 @@ html lang="en"
   head
     meta charset="utf-8"
     title
-      = "#{$settings[:site_title]} - #{@item[:title]}"
+      = "#{@config[:organization]} - #{@item[:title]}"
     link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
     link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"
     link rel="stylesheet" href="//cdn.auburn.edu/assets/css/default.min.css"
+    link rel="stylesheet" href="/assets/style.css"
     meta name="generator" content="nanoc #{Nanoc::VERSION}"
-    less:
-      .sidebar {
-        display: block;
-      }
-      @media (min-width: 768px) {
-        html, body, .container {
-          height: 100%;
-        }
-        #content {
-          height: 100%;
-          .sidebar {
-            display: block;
-            height: 100%;
-            &.sidebar-right {
-              border-right: 0px; 
-              border-left: 1px solid #d7d7d7;
-            }
-          }
-        }
-      }
   body
     .container
       #top.row.header-wrap
@@ -53,15 +34,16 @@ html lang="en"
             img class="visible-print" src="//cdn.auburn.edu/assets/img/header-logo-print.png" height="48" width="245" alt="Auburn University Logo"
             .main-heading.hidden-print
               a href="/"
-                = $settings[:site_title]
+                = @config[:organization]
             .sub-heading.hidden-print
               = @item[:title]
         nav#nav-section.navbar.hidden-print role="navigation"
           .navbar-brand.collapsed data-toggle="collapse" data-target=".navbar-ex1-collapse"
-            | Main Navigation
+            | Site Links 
+            i class="icon icon-chevron-down"
           .collapse.navbar-collapse.navbar-ex1-collapse
             ul.nav.navbar-nav
-              - for link in $settings[:site_nav]
+              - for link in @config[:site_nav]
                 li
                   a href="#{link[:url]}" 
                     = link[:text]
@@ -76,19 +58,82 @@ html lang="en"
             h1
               = @item[:title]
           == yield
-        #sidebar.hidden-print.col-sm-3.sidebar.sidebar-white.sidebar-right
+          p.last-updated 
+            | Last Updated: 
+            time datetime=@item[:mtime]
+              = @item[:mtime].strftime("%B %d, %Y")
+        #sidebar.hidden-print.col-sm-3.sidebar class="sidebar-#{@config[:sidebar_align]} sidebar-#{@config[:sidebar_color]}"
           .sidebar-content
-            .orange-bar.visible-xs
             - unless @item.parent.nil?
               == link_to("Back to " + @item.parent[:title], @item.parent)
             - unless @item.children.empty?
+              - unless @item.parent.nil?
+                .orange-bar
               .blue-header 
                 = @item[:title]
               - for child in @item.children
                 == link_to(child[:title], child)
-      #footer.row.footer-wrap.hidden-print
+            - unless @item.parent.nil? || @item.parent.children == [@item]
+              .orange-bar
+              .blue-header
+                | Related Pages
+              - for sibling in @item.parent.children
+                - unless sibling == @item
+                  == link_to(sibling[:title], sibling)
+      .row.footer-wrap.hidden-print
         footer
+          section
+            ul
+              - for link in @config[:footer_links_left]
+                li
+                  a href="#{link[:url]}" 
+                    = link[:text]
+          section
+            - unless @config[:social_links].nil?
+              p Connect with us!
+              p class="social"
+                - unless @config[:social_links][:facebook].nil?
+                  a href="#{@config[:social_links][:facebook]}" class="facebook social" target="_blank"
+                - unless @config[:social_links][:itunes].nil?
+                  a href="#{@config[:social_links][:itunes]}" class="itunes social" target="_blank"
+                - unless @config[:social_links][:twitter].nil?
+                  a href="#{@config[:social_links][:twitter]}" class="twitter social" target="_blank"
+                - unless @config[:social_links][:google].nil?
+                  a href="#{@config[:social_links][:google]}" class="google-plus social" target="_blank"
+                - unless @config[:social_links][:youtube].nil?
+                  a href="#{@config[:social_links][:youtube]}" class="you-tube social" target="_blank"
+                - unless @config[:social_links][:aufamily].nil?
+                  a href="#{@config[:social_links][:aufamily]}" class="au-family social" target="_blank"
+          section
+            ul
+              - for link in @config[:footer_links_right]
+                li
+                  a href="#{link[:url]}" 
+                    = link[:text]
         .subfooter role="contentinfo"
+          p
+            strong
+              = @config[:organization]
+          p
+            span Auburn University
+            |  | 
+            span Auburn, Alabama 36849
+            |  | 
+            span 
+              = @config[:organization_phone]
+            |  | 
+            span 
+              a href="#{@config[:organization_email]}"
+                = @config[:organization_email]
+          p
+            span
+              a href="http://www.auburn.edu/privacy/" Privacy
+              |  | 
+            span
+              a href="http://www.auburn.edu/oit/it_policies/copyright_regulations.php"
+                | Copyright
+                == " &copy; "
+                = Time.now.year
     script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
     script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
     / script src="//cdn.auburn.edu/assets/js/default.min.js"

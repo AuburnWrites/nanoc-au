@@ -1,6 +1,0 @@
----
-title: Second
----
-
-second page
------------

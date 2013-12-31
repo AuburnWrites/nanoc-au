@@ -1,3 +1,78 @@
+#####################
+# nanoc-au Settings #
+#####################
+
+# Edit the following to customize the site to your organization
+
+# Put your organization's name here.
+organization: Auburn University Site Generator
+
+# Put your organization's contact email here.
+organization_email: webmaster@auburn.edu
+
+# Put your organization's phone contact here.
+organization_phone: 344-844-4000
+
+# Choose alignment of sidebar "left" or "right"
+sidebar_align: right
+
+# Choose color for sidebar "white" or "blue"
+sidebar_color: white
+
+# List the main orange links for the top of each page.
+site_nav:
+  - url: http://www.auburn.edu/main/currentstudents.html
+    text: Students
+  - url: http://www.auburn.edu/main/prospectivestudents.html
+    text: Future Students
+  - url: http://www.auburn.edu/main/employees.html
+    text: Employees
+  - url: http://www.aualum.org/
+    text: Alumni
+  - url: http://www.auburn.edu/main/parents.html
+    text: Parents
+  - url: http://www.auburntigers.com
+    text: Athletic
+
+# List the footer links for the bottomer left of each page.
+footer_links_left:
+  - url: http://www.auburn.edu/main/currentstudents.html
+    text: Students
+  - url: http://www.auburn.edu/main/prospectivestudents.html
+    text: Future Students
+  - url: http://www.auburn.edu/main/employees.html
+    text: Employees
+
+# List the footer links for the bottomer left of each page.
+footer_links_right:
+  - url: http://www.aualum.org/
+    text: Alumni
+  - url: http://www.auburn.edu/main/parents.html
+    text: Parents
+  - url: http://www.auburntigers.com
+    text: Athletics
+
+# Give the URLs for social sites. Comment out unneeded lines.
+social_links:
+  facebook: http://www.facebook.com/auburnu/
+  twitter: http://twitter.com/auburnu/
+  # itunes: http://itunes.auburn.edu/
+  google: https://www.google.com/+AuburnUniversity/
+  youtube: http://www.youtube.com/AuburnUniversity/
+  # aufamily: http://family.auburn.edu/
+
+
+
+
+
+
+##################
+# nanoc Settings #
+##################
+
+# Do not edit unless you know what you're doing! :-)
+
+
 # A list of file extensions that nanoc will consider to be textual rather than
 # binary. If an item with an extension not in this list is found,  the file
 # will be considered as binary.
