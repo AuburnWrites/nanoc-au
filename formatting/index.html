@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Auburn University Site Generator - Formatting Pages</title>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+<link href="//cdn.auburn.edu/assets/css/default.min.css" rel="stylesheet">
+<link href="../assets/style.css" rel="stylesheet">
+<meta content="nanoc 3.6.7" name="generator">
+</head>
+<body>
+<div class="container">
+<div class="row header-wrap" id="top">
+<header role="banner"><div aria-label="Auburn University Homepage" class="logo hidden-print" title="Auburn University Homepage"><a href="http://www.auburn.edu"><img alt="Auburn University Homepage" height="75" src="//cdn.auburn.edu/assets/img/header-logo.png" width="203"></a></div>
+<div class="header-title">
+<div class="top-links hidden-print">
+<a href="http://www.auburn.edu/main/sitemap.php">A-Z Index</a> | <a href="http://www.auburn.edu/map">Map</a> | <a class="lastTopLink" href="http://www.auburn.edu/main/auweb_campus_directory.html">People Finder</a>
+</div>
+<form action="http://search.auburn.edu" class="search-form form-group hidden-print" method="get">
+<div class="search-box"><input accesskey="q" class="search-field form-control" id="q" name="q" placeholder="Search AU..." role="search" tabindex="1" type="text" value=""></div>
+<input name="cx" type="hidden" value="006456623919840955604:pinevfah6qm"><input name="ie" type="hidden" value="utf-8"><label class="form-control" for="q" style=" position:absolute; left:-9999px; visibility:hidden;">Enter your search terms</label>
+</form>
+</div>
+<div class="title-area">
+<img alt="Auburn University Logo" class="visible-print" height="48" src="//cdn.auburn.edu/assets/img/header-logo-print.png" width="245"><div class="main-heading hidden-print"><a href="../">Auburn University Site Generator</a></div>
+<div class="sub-heading hidden-print">Formatting Pages</div>
+</div></header><nav class="navbar hidden-print" id="nav-section" role="navigation"><div class="navbar-brand collapsed" data-target=".navbar-ex1-collapse" data-toggle="collapse">Site Links <i class="icon icon-chevron-down"></i>
+</div>
+<div class="collapse navbar-collapse navbar-ex1-collapse"><ul class="nav navbar-nav">
+<li><a href="http://www.auburn.edu/main/currentstudents.html">Students</a></li>
+<li><a href="http://www.auburn.edu/main/prospectivestudents.html">Future Students</a></li>
+<li><a href="http://www.auburn.edu/main/employees.html">Employees</a></li>
+<li><a href="http://www.aualum.org/">Alumni</a></li>
+<li><a href="http://www.auburn.edu/main/parents.html">Parents</a></li>
+<li><a href="http://www.auburntigers.com">Athletic</a></li>
+</ul></div></nav>
+</div>
+<div class="row row-offcanvas row-offcanvas-left content-area" id="content">
+<div class="content-division col-sm-9" id="main" role="main">
+<p id="breadcrumbs"><a href="../">Home</a> » Formatting Pages</p>
+<h1>Formatting Pages</h1>
+<p>Regardless of what markup language you’ll want to use, there’s a required header at the beginning of each content item:</p>
+
+<pre><code>---
+title: Formatting Pages
+---
+</code></pre>
+
+<p>When generating the site, this YAML markup is parsed in order to know some contextual data on the page. Right now, only a <code>title</code> attribute is supported.</p>
+
+<h2 id="markdown">Markdown</h2>
+
+<p>For basic pages, using <strong>Markdown</strong> is recommended. <strong>nanoc-au</strong> uses <a href="http://kramdown.gettalong.org/">kramdown</a> to parse Markdown markup, so you can refer to the official site for a full list of features.</p>
+
+<p>Here’s the basic things you’ll need, though:</p>
+
+<h3 id="paragraphs-p-and-line-breaks-br">Paragraphs <code>&lt;p&gt;</code> and Line Breaks <code>&lt;br&gt;</code>
+</h3>
+
+<pre><code>Just write text!
+
+Double-space lines for new paragraphs. \\
+Double backslashes give new lines.
+</code></pre>
+
+<p>Just write text!</p>
+
+<p>Double-space lines for new paragraphs. <br>
+Double backslashes give new lines.</p>
+
+<h3 id="links-a">Links <code>&lt;a&gt;</code>
+</h3>
+
+<pre><code>Use [square brackets](http://www.auburn.edu) for the text and [parentheses](http://www.auburntigers.com) for the URL.
+</code></pre>
+
+<p>Use <a href="http://www.auburn.edu">square brackets</a> for the text and <a href="http://www.auburntigers.com">parentheses</a> for the URL.</p>
+
+<h3 id="bold-strong-and-italics-em">Bold <code>&lt;strong&gt;</code> and italics <code>&lt;em&gt;</code>
+</h3>
+
+<pre><code>Use **lots** of *asterisks*.
+</code></pre>
+
+<p>Use <strong>lots</strong> of <em>asterisks</em>.</p>
+
+<h3 id="images-img">Images <code>&lt;img&gt;</code>
+</h3>
+
+<pre><code>![Alt Text](http://www.auburn.edu/template/images/thisisauburn/thisisblue.png "Title Text")
+</code></pre>
+
+<p><img src="http://www.auburn.edu/template/images/thisisauburn/thisisblue.png" alt="Alt Text" title="Title Text"></p>
+
+<h3 id="lists-ul-and-ol">Lists <code>&lt;ul&gt;</code> and <code>&lt;ol&gt;</code>
+</h3>
+
+<pre><code>- A
+* B
+- C
+- D
+
+1. One
+2. Two
+42. Three
+2. Four
+</code></pre>
+
+<ul>
+<li>A</li>
+  <li>B</li>
+  <li>C</li>
+  <li>D</li>
+</ul>
+<ol>
+<li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+  <li>Four</li>
+</ol>
+<p class="last-updated">Last Updated: <time datetime="2013-12-30 19:55:09 -0600">December 30, 2013</time></p>
+</div>
+<div class="hidden-print col-sm-3 sidebar sidebar-right sidebar-white" id="sidebar"><div class="sidebar-content">
+<a href="../">Back to Home</a><div class="orange-bar"></div>
+<div class="blue-header">Related Pages</div>
+<a href="../deploy/">Deploying your Site</a><a href="../setup/">Setting up your Site</a>
+</div></div>
+</div>
+<div class="row footer-wrap hidden-print">
+<footer><section><ul>
+<li><a href="http://www.auburn.edu/main/currentstudents.html">Students</a></li>
+<li><a href="http://www.auburn.edu/main/prospectivestudents.html">Future Students</a></li>
+<li><a href="http://www.auburn.edu/main/employees.html">Employees</a></li>
+</ul></section><section><p>Connect with us!</p>
+<p class="social"><a class="facebook social" href="http://www.facebook.com/auburnu/" target="_blank"></a><a class="twitter social" href="http://twitter.com/auburnu/" target="_blank"></a><a class="google-plus social" href="https://www.google.com/+AuburnUniversity/" target="_blank"></a><a class="you-tube social" href="http://www.youtube.com/AuburnUniversity/" target="_blank"></a></p></section><section><ul>
+<li><a href="http://www.aualum.org/">Alumni</a></li>
+<li><a href="http://www.auburn.edu/main/parents.html">Parents</a></li>
+<li><a href="http://www.auburntigers.com">Athletics</a></li>
+</ul></section></footer><div class="subfooter" role="contentinfo">
+<p><strong>Auburn University Site Generator</strong></p>
+<p><span>Auburn University</span> | <span>Auburn, Alabama 36849</span> | <span>344-844-4000</span> | <span><a href="webmaster@auburn.edu">webmaster@auburn.edu</a></span></p>
+<p><span><a href="http://www.auburn.edu/privacy/">Privacy</a> | </span><span><a href="http://www.auburn.edu/oit/it_policies/copyright_regulations.php">Copyright © 2013</a></span></p>
+</div>
+</div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script><script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

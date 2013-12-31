@@ -1,0 +1,26 @@
+.content-division h1 {
+  font-variant: small-caps;
+  border-bottom: #ccc 1px solid;
+}
+.sidebar {
+  display: block;
+}
+.sidebar .blue-header {
+  border-bottom: 0;
+}
+.sidebar-white {
+  border-bottom: 1px solid #d7d7d7;
+}
+.sidebar-white .blue-header {
+  border-bottom: 1px solid #d7d7d7;
+}
+@media (min-width: 768px) {
+  #content .sidebar.sidebar-right {
+    float: right;
+    border-right: 0px;
+    border-left: 1px solid #d7d7d7;
+  }
+}
+.footer-wrap {
+  background: url('footer.png') center 5px no-repeat;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Auburn University Site Generator - Setting up your Site</title>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+<link href="//cdn.auburn.edu/assets/css/default.min.css" rel="stylesheet">
+<link href="../assets/style.css" rel="stylesheet">
+<meta content="nanoc 3.6.7" name="generator">
+</head>
+<body>
+<div class="container">
+<div class="row header-wrap" id="top">
+<header role="banner"><div aria-label="Auburn University Homepage" class="logo hidden-print" title="Auburn University Homepage"><a href="http://www.auburn.edu"><img alt="Auburn University Homepage" height="75" src="//cdn.auburn.edu/assets/img/header-logo.png" width="203"></a></div>
+<div class="header-title">
+<div class="top-links hidden-print">
+<a href="http://www.auburn.edu/main/sitemap.php">A-Z Index</a> | <a href="http://www.auburn.edu/map">Map</a> | <a class="lastTopLink" href="http://www.auburn.edu/main/auweb_campus_directory.html">People Finder</a>
+</div>
+<form action="http://search.auburn.edu" class="search-form form-group hidden-print" method="get">
+<div class="search-box"><input accesskey="q" class="search-field form-control" id="q" name="q" placeholder="Search AU..." role="search" tabindex="1" type="text" value=""></div>
+<input name="cx" type="hidden" value="006456623919840955604:pinevfah6qm"><input name="ie" type="hidden" value="utf-8"><label class="form-control" for="q" style=" position:absolute; left:-9999px; visibility:hidden;">Enter your search terms</label>
+</form>
+</div>
+<div class="title-area">
+<img alt="Auburn University Logo" class="visible-print" height="48" src="//cdn.auburn.edu/assets/img/header-logo-print.png" width="245"><div class="main-heading hidden-print"><a href="../">Auburn University Site Generator</a></div>
+<div class="sub-heading hidden-print">Setting up your Site</div>
+</div></header><nav class="navbar hidden-print" id="nav-section" role="navigation"><div class="navbar-brand collapsed" data-target=".navbar-ex1-collapse" data-toggle="collapse">Site Links <i class="icon icon-chevron-down"></i>
+</div>
+<div class="collapse navbar-collapse navbar-ex1-collapse"><ul class="nav navbar-nav">
+<li><a href="http://www.auburn.edu/main/currentstudents.html">Students</a></li>
+<li><a href="http://www.auburn.edu/main/prospectivestudents.html">Future Students</a></li>
+<li><a href="http://www.auburn.edu/main/employees.html">Employees</a></li>
+<li><a href="http://www.aualum.org/">Alumni</a></li>
+<li><a href="http://www.auburn.edu/main/parents.html">Parents</a></li>
+<li><a href="http://www.auburntigers.com">Athletic</a></li>
+</ul></div></nav>
+</div>
+<div class="row row-offcanvas row-offcanvas-left content-area" id="content">
+<div class="content-division col-sm-9" id="main" role="main">
+<p id="breadcrumbs"><a href="../">Home</a> » Setting up your Site</p>
+<h1>Setting up your Site</h1>
+<p>You’ll need to do two things to set up your site: <strong>customize your site’s configuration options</strong> and <strong>create content pages</strong>.</p>
+
+<h2 id="configuration-options">Configuration Options</h2>
+
+<p>The configuration options for your site can be found in <code>/nanoc.yaml</code> in the site project root. The top of the file looks something like this:</p>
+
+<pre><code>#####################
+# nanoc-au Settings #
+#####################
+
+# Edit the following to customize the site to your organization
+
+# Put your organization's name here.
+organization: Auburn University Site Generator
+</code></pre>
+
+<p>This YAML file is imported by nanoc as the site’s configuration settings, available as <code>@config</code> when rendering pages. The “nanoc-au Settings” are custom settings throughout an Auburn site. All you need to do is edit the settings as appropriate, and these options will be propogated to every page on the site.</p>
+
+<h2 id="create-content-pages">Create content pages</h2>
+
+<p>Creating pages for your site is as simple as adding a file to the <code>/content/</code> folder in your project. Here’s the schematic of this site based on its content files:</p>
+
+<pre><code>content
+|
+|-- assets              # folder to hold assets, can edit 
+|                       # contents to customize site
+|
+|-- deploy.md           # 1st-level subpage
+|
+|-- formatting.md       # 1st-level subpage
+|
+|-- index.md            # site homepage
+|
+|-- setup.md            # 1st-level subpage
+|
+|-- setup               # folder to hold subpages
+    |
+    |-- example.md      # 2nd-level subpage under setup
+</code></pre>
+
+<p>Compiling the site will result in the following <code>output</code> folder:</p>
+
+<pre><code>output
+|
+|-- assets              # exact copy of assets in content folder
+|
+|-- deploy
+|   |
+|   |-- index.html      # compiles to deploy/index.html so 
+|                       # /deploy/ route works on any server
+|
+|-- formatting
+|   |
+|   |-- index.html      # formatting subpage
+|
+|-- index.html          # site homepage
+|
+|-- setup
+    |
+    |-- index.html      # setup subpage
+    |
+    |-- example
+        |
+        |-- index.html  # example 2nd-level subpage
+</code></pre>
+
+<p>The default configuration of <strong>nanoc-au</strong> is set up so that you can base your links assuming that the site will be situated in the root of the domain. For example, to link ot the example subpage, <code>&lt;a href="/setup/example/"&gt;Example&lt;/a&gt;</code> is sufficient, even if the site will not actually be hosted in the root of the domain - compiling the site will rewrite the href attribute to be relative to the current page.</p>
+
+<p><a href="http://nanoc.ws">nanoc</a> has support for several types of markup (via utilizing the appopriate RubyGems), but by default <strong>nanoc-au</strong> supports just <strong>Markdown</strong> <code>*.md</code>, <strong>Slim</strong> <code>*.slim</code>, and of course plain <strong>HTML</strong> <code>*.html</code>.</p>
+
+<p>To learn more about using Markdown, visit the <a href="../formatting/">formatting page</a>. To learn more about using Slim for more complicated pages, visit <a href="http://slim-lang.com/">http://slim-lang.com/</a>.</p>
+<p class="last-updated">Last Updated: <time datetime="2013-12-30 19:31:27 -0600">December 30, 2013</time></p>
+</div>
+<div class="hidden-print col-sm-3 sidebar sidebar-right sidebar-white" id="sidebar"><div class="sidebar-content">
+<a href="../">Back to Home</a><div class="orange-bar"></div>
+<div class="blue-header">Setting up your Site</div>
+<a href="example/">Example Subpage</a><div class="orange-bar"></div>
+<div class="blue-header">Related Pages</div>
+<a href="../deploy/">Deploying your Site</a><a href="../formatting/">Formatting Pages</a>
+</div></div>
+</div>
+<div class="row footer-wrap hidden-print">
+<footer><section><ul>
+<li><a href="http://www.auburn.edu/main/currentstudents.html">Students</a></li>
+<li><a href="http://www.auburn.edu/main/prospectivestudents.html">Future Students</a></li>
+<li><a href="http://www.auburn.edu/main/employees.html">Employees</a></li>
+</ul></section><section><p>Connect with us!</p>
+<p class="social"><a class="facebook social" href="http://www.facebook.com/auburnu/" target="_blank"></a><a class="twitter social" href="http://twitter.com/auburnu/" target="_blank"></a><a class="google-plus social" href="https://www.google.com/+AuburnUniversity/" target="_blank"></a><a class="you-tube social" href="http://www.youtube.com/AuburnUniversity/" target="_blank"></a></p></section><section><ul>
+<li><a href="http://www.aualum.org/">Alumni</a></li>
+<li><a href="http://www.auburn.edu/main/parents.html">Parents</a></li>
+<li><a href="http://www.auburntigers.com">Athletics</a></li>
+</ul></section></footer><div class="subfooter" role="contentinfo">
+<p><strong>Auburn University Site Generator</strong></p>
+<p><span>Auburn University</span> | <span>Auburn, Alabama 36849</span> | <span>344-844-4000</span> | <span><a href="webmaster@auburn.edu">webmaster@auburn.edu</a></span></p>
+<p><span><a href="http://www.auburn.edu/privacy/">Privacy</a> | </span><span><a href="http://www.auburn.edu/oit/it_policies/copyright_regulations.php">Copyright © 2013</a></span></p>
+</div>
+</div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script><script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
