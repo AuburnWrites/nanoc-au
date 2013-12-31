@@ -38,3 +38,7 @@ guard
 ## Getting started
 
 If you're already familiar with **nanoc**, you're good to go. Otherwise, head to the [set up page](/setup/).
+
+## Development
+
+Need a new feature? [Please feel free to fork us on GitHub, make it, and send a pull request!](https://github.com/AuburnWrites/nanoc-au/)
