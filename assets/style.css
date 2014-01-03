@@ -21,6 +21,11 @@
     border-left: 1px solid #d7d7d7;
   }
 }
+@media (max-width: 767px) {
+  .sidebar {
+    border: 0px;
+  }
+}
 .footer-wrap {
   background: url('footer.png') center 5px no-repeat;
 }
