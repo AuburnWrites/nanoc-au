@@ -77,15 +77,18 @@ html lang="en"
                 .orange-bar
               .blue-header 
                 = @item[:title]
-              - for child in @item.children
+              - orderedChildren(@item).each do |child|
                 == link_to(child[:title], child)
             - unless @item.parent.nil? || @item.parent.children == [@item]
               .orange-bar
               .blue-header
                 | Related Pages
-              - for sibling in @item.parent.children
+              - for sibling in orderedChildren @item.parent
                 - unless sibling == @item
                   == link_to(sibling[:title], sibling)
+                - else
+                  span.orange
+                    == link_to("&raquo; #{@item[:title]}", '#', class: "current")
       .row.footer-wrap.hidden-print
         footer
           section

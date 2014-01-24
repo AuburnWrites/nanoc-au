@@ -1,5 +1,6 @@
 ---
 title: Formatting Pages
+order: 2
 ---
 
 Regardless of what markup language you'll want to use, there's a required header at the beginning of each content item:

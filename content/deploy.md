@@ -1,5 +1,6 @@
 ---
 title: Deploying your Site
+order: 3
 ---
 
 Deploying your **nanoc-au** site will depend on what server you're using and what access you have to it.

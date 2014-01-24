@@ -1,5 +1,6 @@
 ---
 title: Setting up your Site
+order: 1
 ---
 
 You'll need to do two things to set up your site: **customize your site's configuration options** and **create content pages**.

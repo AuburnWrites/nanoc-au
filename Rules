@@ -13,6 +13,10 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+preprocess do
+  items.each { |item| item[:title] = item.identifier if item[:title].nil? }
+end
+
 compile 'assets/*' do
   unless item.binary?
     case item[:extension]
