@@ -1,0 +1,8 @@
+- order_items(menu_items).each do |item|
+  - unless item == current_item
+    - if item.binary?
+      == link_to(item[:title] + ext_link_icon, item, target: "_blank")
+    - else
+      == link_to(item[:title], item)
+  - else
+    == link_to("&raquo; #{current_item[:title]}", '#', class: "current")

@@ -35,7 +35,7 @@ compile '*' do
       when 'slim'
         filter :slim
     end
-    layout 'default'
+    layout 'layout'
     filter :relativize_paths, type: :html
   end
 end
