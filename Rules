@@ -17,7 +17,7 @@ preprocess do
   items.each { |item| item[:title] = item.identifier if item[:title].nil? }
 end
 
-compile 'assets/*' do
+compile '/assets/*' do
   unless item.binary?
     case item[:extension]
       when 'less'
