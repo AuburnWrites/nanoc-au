@@ -6,15 +6,22 @@ title: Home
 
 ### A Static Site Generator for Auburn University Websites
 
-This project merges the [nanoc static site generator](http://nanoc.ws) and the [2013 Auburn University site template](http://www.auburn.edu/template/2013/). It's meant for developers comfortable with the terminal to easily generate static websites fitting the modern AU template.
+This project merges the [nanoc static site generator](http://nanoc.ws) and the 
+[2013 Auburn University site template](http://www.auburn.edu/template/2013/).
+It's meant for developers comfortable with the terminal to easily generate 
+static websites fitting the modern AU template.
 
 ## Why Static?
 
-A few good reasons: it's fast, safe, previewable, and versionable. You'll be able to host it on **any** webserver, since it's just static HTML. See more at [nanoc's site](http://nanoc.ws/about/#why-static).
+A few good reasons: it's fast, safe, previewable, and versionable. You'll be 
+able to host it on **any** webserver, since it's just static HTML. See more 
+at [nanoc's site](http://nanoc.ws/about/#why-static).
 
 ## Requirements
 
-I recommend using [RVM](http://rvm.io/) to manage your Ruby installations and gems. This project is developed using `ruby-2.1.0`.
+I recommend using [rbenv](https://github.com/sstephenson/rbenv) to manage 
+your Ruby installations and gems. This project is developed using 
+`ruby-2.1.0`.
 
 ## Installation
 
@@ -26,13 +33,16 @@ cd nanoc-au
 bundle
 ~~~
 
-You now have access to the `nanoc` and `guard` commands - in two separate terminals, use these commands to set up a local server at <http://127.0.0.1:3000/> and automatically regenerate the site upon saving changes.
+You now have access to the `nanoc` and `guard` commands - in two separate
+terminals, use these commands to set up a local server at 
+<http://127.0.0.1:3000/> and automatically regenerate the site upon saving 
+changes.
 
 ~~~
 # to set up local server http://127.0.0.1:3000/
-nanoc view
+bundle exec nanoc view
 # to track changes (use in separate terminal window)
-guard
+bundle exec guard
 ~~~
 
 ## Getting started

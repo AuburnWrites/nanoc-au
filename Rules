@@ -31,7 +31,7 @@ compile '*' do
   unless item.binary?
     case item[:extension]
       when 'md'
-        filter :kramdown
+        filter :kramdown, coderay_line_numbers: :table
       when 'slim'
         filter :slim
     end
