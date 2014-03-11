@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Auburn University Site Generator - nanoc-au for Newbies</title>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+<link href="//cdn.auburn.edu/assets/css/default.min.css" rel="stylesheet">
+<link href="../assets/style.css" rel="stylesheet">
+<meta content="nanoc 3.6.7" name="generator">
+<link href="https://www.auburn.edu/template/2013/assets/ico/apple-touch-icon-144-precomposed.png" rel="apple-touch-icon-precomposed" sizes="144x144">
+<link href="https://www.auburn.edu/template/2013/assets/ico/apple-touch-icon-114-precomposed.png" rel="apple-touch-icon-precomposed" sizes="114x114">
+<link href="https://www.auburn.edu/template/2013/assets/ico/apple-touch-icon-72-precomposed.png" rel="apple-touch-icon-precomposed" sizes="72x72">
+<link href="https://www.auburn.edu/template/2013/assets/ico/apple-touch-icon-57-precomposed.png" rel="apple-touch-icon-precomposed">
+<link href="https://www.auburn.edu/template/2013/assets/ico/favicon.png" rel="shortcut icon">
+</head>
+<body>
+<div class="container">
+<div class="row header-wrap" id="top">
+<header role="banner"><div aria-label="Auburn University Homepage" class="logo hidden-print" title="Auburn University Homepage"><a href="http://www.auburn.edu"><img alt="Auburn University Homepage" height="75" src="//cdn.auburn.edu/assets/img/header-logo.png" width="203"></a></div>
+<div class="header-title">
+<div class="top-links hidden-print">
+<a href="http://www.auburn.edu/main/sitemap.php">A-Z Index</a> | <a href="http://www.auburn.edu/map">Map</a> | <a class="lastTopLink" href="http://www.auburn.edu/main/auweb_campus_directory.html">People Finder</a>
+</div>
+<form action="http://search.auburn.edu" class="search-form form-group hidden-print" method="get">
+<div class="search-box"><input accesskey="q" class="search-field form-control" id="q" name="q" placeholder="Search AU..." role="search" tabindex="1" type="text" value=""></div>
+<input name="cx" type="hidden" value="006456623919840955604:pinevfah6qm"><input name="ie" type="hidden" value="utf-8"><label class="form-control" for="q" style=" position:absolute; left:-9999px; visibility:hidden;">Enter your search terms</label>
+</form>
+</div>
+<div class="title-area">
+<img alt="Auburn University Logo" class="visible-print" height="48" src="//cdn.auburn.edu/assets/img/header-logo-print.png" width="245"><div class="main-heading hidden-print"><a href="../">Auburn University Site Generator</a></div>
+<div class="sub-heading hidden-print">nanoc-au for Newbies</div>
+</div></header><nav class="navbar hidden-print" id="nav-section" role="navigation"><div class="navbar-brand collapsed" data-target=".navbar-ex1-collapse" data-toggle="collapse">Site Links <i class="icon icon-chevron-down"></i>
+</div>
+<div class="collapse navbar-collapse navbar-ex1-collapse"><ul class="nav navbar-nav">
+<li><a href="http://www.auburn.edu/main/currentstudents.html">Students</a></li>
+<li><a href="http://www.auburn.edu/main/prospectivestudents.html">Future Students</a></li>
+<li><a href="http://www.auburn.edu/main/employees.html">Employees</a></li>
+<li><a href="http://www.aualum.org/">Alumni</a></li>
+<li><a href="http://www.auburn.edu/main/parents.html">Parents</a></li>
+<li><a href="http://www.auburntigers.com">Athletic</a></li>
+</ul></div></nav>
+</div>
+<div class="row row-offcanvas row-offcanvas-left content-area" id="content">
+<div class="content-division col-sm-9" id="main" role="main">
+<p id="breadcrumbs"><a href="../">Home</a> » nanoc-au for Newbies</p>
+<h1>nanoc-au for Newbies</h1>
+<p>This might be your first time using a command-line static site generator.
+This guide will get you from 0 to running in no time.</p>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>While you should be able to use nanoc and nanoc-au with Windows, this guide
+will assume you’re using Mac OSX since that’s what I’m using to write it!
+If you’re using Linux, most if not all of the instructions should carry over.</p>
+
+<p>You will do most of your work in the Terminal, but even if you’re 
+unexperienced with the command line you should be fine.</p>
+
+<h3 id="ruby-and-rbenv">Ruby and rbenv</h3>
+
+<p>The following might be a pain, but you only need to do it once, and then
+you’re set up.</p>
+
+<p>Since nanoc is a Ruby library, you’ll need a copy of Ruby. OSX has Ruby 
+installed by default (the version of Ruby depending on your version of OSX). 
+But it’s generally good practice to have some sort of Ruby version manager 
+anyway so you don’t need to mess with your system installation if you wanted 
+to, say, upgrade to a newer version.</p>
+
+<p>I suggest <a href="https://github.com/sstephenson/rbenv">rbenv</a>. You can also use 
+<a href="https://rvm.io/">RVM</a> if you prefer.</p>
+
+<p>If you’re going with rbenv, you can more or less follow its
+<a href="https://github.com/sstephenson/rbenv#installation">installation</a> 
+instructions. For OSX you definitely want to use the Homebrew utility.</p>
+
+<pre><code>$ brew update
+$ brew install rbenv ruby-build
+</code></pre>
+
+<p>If you’re not familar with your “profile”, it’s usually a file located at 
+<code>~/.bash_profile</code> a.k.a. <code>/Users/yourname/.bash_profile</code> 
+which loads some shell commands at the start of each 
+session. Be sure to take Homebrew’s advice and add a line like 
+<code>eval "$(rbenv init -)"</code> to your profile file so that rbenv can work as
+intended.</p>
+
+<p>Once you see something like</p>
+
+<pre><code>$ which rbenv
+/usr/local/bin/rbenv
+</code></pre>
+
+<p>you’re ready to go. I’d recommend installing the latest Ruby, which is
+<code>2.1.1</code> at the time of writing. If you installed from Homebrew, it came with
+<code>ruby-build</code>, but otherwise follow the installation instructions to get
+ruby-build. You can then install Ruby 2.1.1 by:</p>
+
+<pre><code>$ rbenv install 2.1.1
+Downloading ruby-2.1.1.tar.gz...
+-&gt; http://dqw8nmjcqpjn7.cloudfront.net/e57fdbb8ed56e70c43f39c79da1654b2
+Installing ruby-2.1.1...
+Installed ruby-2.1.1 to /Users/yourname/.rbenv/versions/2.1.1
+</code></pre>
+
+<p>rbenv is set up so that most of the time your Ruby commands will pass
+through to your system’s Ruby version. But, since nanoc-au includes a
+<code>.ruby-version</code> file, rbenv will read that and know to use its copy
+of <code>2.1.1</code> when you are within the project directory.</p>
+
+<h3 id="gitting-nanoc-au">Gitting nanoc-au</h3>
+
+<p>You can download the zip of files from GitHub, but the best way to get
+nanoc-au is to use Git. We like Homebrew, since all you need to do is</p>
+
+<pre><code>$ brew install git
+</code></pre>
+
+<p>Git is a version managment system. To get the latest version of nanoc-au, do
+the following:</p>
+
+<pre><code>$ git clone git@github.com:StevenClontz/nanoc-au.git
+Cloning into 'nanoc-au'...
+remote: Reusing existing pack: 208, done.
+remote: Total 208 (delta 0), reused 0 (delta 0)
+Receiving objects: 100% (208/208), 53.25 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (84/84), done.
+Checking connectivity... done.
+$ mv nanoc-au my-awesome-site
+$ cd my-awesome-site
+$ git remote rename origin nanoc-au
+</code></pre>
+
+<p>The <code>my-awesome-site</code> folder now contains your project. It’s actually a
+copy of this site that you can edit as needed for your project.</p>
+
+<h3 id="bundler-and-rubygems">Bundler and RubyGems</h3>
+
+<p>Rather than force you to install <code>nanoc</code> or the other required Ruby libraries
+by hand, nanoc-au comes with a Gemfile which lists all the required libraries.</p>
+
+<p>To use it, first install Bundler by using RubyGems (packaged with Ruby):</p>
+
+<pre><code>$ gem install bundler
+</code></pre>
+
+<p>You can then use Bundler to install the rest of the required “gems” (Ruby
+libraries) with a simple</p>
+
+<pre><code>$ bundle
+Fetching gem metadata from http://rubygems.org/.........
+Fetching additional metadata from http://rubygems.org/..
+Installing rack (1.5.2)
+Installing adsf (1.2.0)
+(etc.)
+</code></pre>
+
+<p>Notice that RubyGems knows the dependencies of each gem, so those are 
+also downloaded and installed. Some of these (like nanoc) have commands 
+which can be used in the terminal. You’ll need to let rbenv know about them
+by running</p>
+
+<pre><code>$ rbenv rehash
+</code></pre>
+
+<h3 id="building-your-first-site">Building your first site</h3>
+
+<p>You now have a copy of the source for this website (in the <code>content</code>) folder,
+but you don’t have a copy of the HTML itself which will be hosted online.</p>
+
+<p>To build your site, use</p>
+
+<pre><code>$ bundle exec nanoc
+Loading site data… done
+Compiling site…
+      create  output/assets/footer.png
+      create  output/assets/style.css
+      create  output/deploy/index.html
+      create  output/formatting/index.html
+      create  output/index.html
+      create  output/new/index.html
+      create  output/setup/example/index.html
+      create  output/setup/example2.png
+      create  output/setup/index.html
+
+Site compiled in 0.70s.
+</code></pre>
+
+<p>The <code>bundle exec</code> bit is important if you have multiple versions of <code>nanoc</code>
+installed on your computer, since it reads the Gemfile to know to use
+which version.</p>
+
+<p>Anyway, that’s it. You can now move the contents of <code>output</code> to your web
+server. For more information, check out the <a href="../setup/">setup</a> and 
+<a href="../deploy/">deploy</a> pages. Have fun!</p>
+
+<h2 id="questions">Questions?</h2>
+
+<p>Please email me at <a href="mailto:steven.clontz@gmail.com">steven.clontz@gmail.com</a> with questions and I’ll
+update this guide to better address them in the future!</p>
+<p class="last-updated">Last Updated: <time datetime="2014-03-11 15:50:33 -0500">March 11, 2014</time></p>
+</div>
+<div class="hidden-print col-sm-3 sidebar sidebar-right sidebar-white" id="sidebar"><div class="sidebar-content">
+<a href="../">Back to Home</a><div class="orange-bar"></div>
+<div class="blue-header">Related Pages</div>
+<a href="../setup/">Setting up your Site</a><a href="../formatting/">Formatting Pages</a><a href="../deploy/">Deploying your Site</a><a class="current" href="#">» nanoc-au for Newbies</a>
+</div></div>
+</div>
+<div class="row footer-wrap hidden-print">
+<footer><section><ul>
+<li><a href="http://www.auburn.edu/main/currentstudents.html">Students</a></li>
+<li><a href="http://www.auburn.edu/main/prospectivestudents.html">Future Students</a></li>
+<li><a href="http://www.auburn.edu/main/employees.html">Employees</a></li>
+</ul></section><section><p>Connect with us!</p>
+<p class="social"><a class="facebook social" href="http://www.facebook.com/auburnu/" target="_blank"></a><a class="twitter social" href="http://twitter.com/auburnu/" target="_blank"></a><a class="google-plus social" href="https://www.google.com/+AuburnUniversity/" target="_blank"></a><a class="you-tube social" href="http://www.youtube.com/AuburnUniversity/" target="_blank"></a></p></section><section><ul>
+<li><a href="http://www.aualum.org/">Alumni</a></li>
+<li><a href="http://www.auburn.edu/main/parents.html">Parents</a></li>
+<li><a href="http://www.auburntigers.com">Athletics</a></li>
+</ul></section></footer><div class="subfooter" role="contentinfo">
+<p><strong>Auburn University Site Generator</strong></p>
+<p><span>Auburn University</span> | <span>Auburn, Alabama 36849</span> | <span>344-844-4000</span> | <span><a href="webmaster@auburn.edu">webmaster@auburn.edu</a></span></p>
+<p><span>Generated by <a href="http://auburnwrites.github.io/nanoc-au">nanoc-au</a> | </span><span><a href="http://www.auburn.edu/privacy/">Privacy</a> | </span><span><a href="http://www.auburn.edu/oit/it_policies/copyright_regulations.php">Copyright © 2014</a></span></p>
+</div>
+</div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script><script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

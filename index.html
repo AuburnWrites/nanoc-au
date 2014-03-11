@@ -49,15 +49,22 @@
 
 <h3 id="a-static-site-generator-for-auburn-university-websites">A Static Site Generator for Auburn University Websites</h3>
 
-<p>This project merges the <a href="http://nanoc.ws">nanoc static site generator</a> and the <a href="http://www.auburn.edu/template/2013/">2013 Auburn University site template</a>. It’s meant for developers comfortable with the terminal to easily generate static websites fitting the modern AU template.</p>
+<p>This project merges the <a href="http://nanoc.ws">nanoc static site generator</a> and the 
+<a href="http://www.auburn.edu/template/2013/">2013 Auburn University site template</a>.
+It’s meant for developers comfortable with the terminal to easily generate 
+static websites fitting the modern AU template.</p>
 
 <h2 id="why-static">Why Static?</h2>
 
-<p>A few good reasons: it’s fast, safe, previewable, and versionable. You’ll be able to host it on <strong>any</strong> webserver, since it’s just static HTML. See more at <a href="http://nanoc.ws/about/#why-static">nanoc’s site</a>.</p>
+<p>A few good reasons: it’s fast, safe, previewable, and versionable. You’ll be 
+able to host it on <strong>any</strong> webserver, since it’s just static HTML. See more 
+at <a href="http://nanoc.ws/about/#why-static">nanoc’s site</a>.</p>
 
 <h2 id="requirements">Requirements</h2>
 
-<p>I recommend using <a href="http://rvm.io/">RVM</a> to manage your Ruby installations and gems. This project is developed using <code>ruby-2.1.0</code>.</p>
+<p>I recommend using <a href="https://github.com/sstephenson/rbenv">rbenv</a> to manage 
+your Ruby installations and gems. This project is developed using 
+<code>ruby-2.1.0</code>.</p>
 
 <h2 id="installation">Installation</h2>
 
@@ -68,12 +75,15 @@ cd nanoc-au
 bundle
 </code></pre>
 
-<p>You now have access to the <code>nanoc</code> and <code>guard</code> commands - in two separate terminals, use these commands to set up a local server at <a href="http://127.0.0.1:3000/">http://127.0.0.1:3000/</a> and automatically regenerate the site upon saving changes.</p>
+<p>You now have access to the <code>nanoc</code> and <code>guard</code> commands - in two separate
+terminals, use these commands to set up a local server at 
+<a href="http://127.0.0.1:3000/">http://127.0.0.1:3000/</a> and automatically regenerate the site upon saving 
+changes.</p>
 
 <pre><code># to set up local server http://127.0.0.1:3000/
-nanoc view
+bundle exec nanoc view
 # to track changes (use in separate terminal window)
-guard
+bundle exec guard
 </code></pre>
 
 <h2 id="getting-started">Getting started</h2>
@@ -83,11 +93,11 @@ guard
 <h2 id="development">Development</h2>
 
 <p>Need a new feature? <a href="https://github.com/AuburnWrites/nanoc-au/">Please feel free to fork us on GitHub, make it, and send a pull request!</a></p>
-<p class="last-updated">Last Updated: <time datetime="2013-12-30 20:11:32 -0600">December 30, 2013</time></p>
+<p class="last-updated">Last Updated: <time datetime="2014-03-11 14:33:13 -0500">March 11, 2014</time></p>
 </div>
 <div class="hidden-print col-sm-3 sidebar sidebar-right sidebar-white" id="sidebar"><div class="sidebar-content">
 <div class="blue-header">Home</div>
-<a href="deploy/">Deploying your Site</a><a href="formatting/">Formatting Pages</a><a href="setup/">Setting up your Site</a>
+<a href="setup/">Setting up your Site</a><a href="formatting/">Formatting Pages</a><a href="deploy/">Deploying your Site</a><a href="new/">nanoc-au for Newbies</a>
 </div></div>
 </div>
 <div class="row footer-wrap hidden-print">

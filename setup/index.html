@@ -47,11 +47,13 @@
 <div class="content-division col-sm-9" id="main" role="main">
 <p id="breadcrumbs"><a href="../">Home</a> » Setting up your Site</p>
 <h1>Setting up your Site</h1>
-<p>You’ll need to do two things to set up your site: <strong>customize your site’s configuration options</strong> and <strong>create content pages</strong>.</p>
+<p>You’ll need to do two things to set up your site: <strong>customize your site’s 
+configuration options</strong> and <strong>create content pages</strong>.</p>
 
 <h2 id="configuration-options">Configuration Options</h2>
 
-<p>The configuration options for your site can be found in <code>/nanoc.yaml</code> in the site project root. The top of the file looks something like this:</p>
+<p>The configuration options for your site can be found in <code>/nanoc.yaml</code> in the 
+site project root. The top of the file looks something like this:</p>
 
 <pre><code>#####################
 # nanoc-au Settings #
@@ -63,11 +65,17 @@
 organization: Auburn University Site Generator
 </code></pre>
 
-<p>This YAML file is imported by nanoc as the site’s configuration settings, available as <code>@config</code> when rendering pages. The “nanoc-au Settings” are custom settings throughout an Auburn site. All you need to do is edit the settings as appropriate, and these options will be propogated to every page on the site.</p>
+<p>This YAML file is imported by nanoc as the site’s configuration settings, 
+available as <code>@config</code> when rendering pages. The “nanoc-au Settings” are 
+custom settings throughout an Auburn site. All you need to do is edit the 
+settings as appropriate, and these options will be propogated to every page 
+on the site.</p>
 
 <h2 id="create-content-pages">Create content pages</h2>
 
-<p>Creating pages for your site is as simple as adding a file to the <code>/content/</code> folder in your project. Here’s the schematic of this site based on its content files:</p>
+<p>Creating pages for your site is as simple as adding a file to the <code>/content/</code> 
+folder in your project. Here’s the schematic of this site based on its 
+content files:</p>
 
 <pre><code>content
 |
@@ -113,19 +121,29 @@ organization: Auburn University Site Generator
         |-- index.html  # example 2nd-level subpage
 </code></pre>
 
-<p>The default configuration of <strong>nanoc-au</strong> is set up so that you can base your links assuming that the site will be situated in the root of the domain. For example, to link ot the example subpage, <code>&lt;a href="/setup/example/"&gt;Example&lt;/a&gt;</code> is sufficient, even if the site will not actually be hosted in the root of the domain - compiling the site will rewrite the href attribute to be relative to the current page.</p>
+<p>The default configuration of <strong>nanoc-au</strong> is set up so that you can base your 
+links assuming that the site will be situated in the root of the domain. For 
+example, to link ot the example subpage, 
+<code>&lt;a href="/setup/example/"&gt;Example&lt;/a&gt;</code> is sufficient, even if the site will 
+not actually be hosted in the root of the domain - compiling the site will 
+rewrite the href attribute to be relative to the current page.</p>
 
-<p><a href="http://nanoc.ws">nanoc</a> has support for several types of markup (via utilizing the appopriate RubyGems), but by default <strong>nanoc-au</strong> supports just <strong>Markdown</strong> <code>*.md</code>, <strong>Slim</strong> <code>*.slim</code>, and of course plain <strong>HTML</strong> <code>*.html</code>.</p>
+<p><a href="http://nanoc.ws">nanoc</a> has support for several types of markup (via 
+utilizing the appopriate RubyGems), but by default <strong>nanoc-au</strong> supports just 
+<strong>Markdown</strong> <code>*.md</code>, <strong>Slim</strong> <code>*.slim</code>, and of course plain <strong>HTML</strong> 
+<code>*.html</code>.</p>
 
-<p>To learn more about using Markdown, visit the <a href="../formatting/">formatting page</a>. To learn more about using Slim for more complicated pages, visit <a href="http://slim-lang.com/">http://slim-lang.com/</a>.</p>
-<p class="last-updated">Last Updated: <time datetime="2013-12-30 19:31:27 -0600">December 30, 2013</time></p>
+<p>To learn more about using Markdown, visit the 
+<a href="../formatting/">formatting page</a>. To learn more about using Slim for more 
+complicated pages, visit <a href="http://slim-lang.com/">http://slim-lang.com/</a>.</p>
+<p class="last-updated">Last Updated: <time datetime="2014-03-11 14:34:17 -0500">March 11, 2014</time></p>
 </div>
 <div class="hidden-print col-sm-3 sidebar sidebar-right sidebar-white" id="sidebar"><div class="sidebar-content">
 <a href="../">Back to Home</a><div class="orange-bar"></div>
 <div class="blue-header">Setting up your Site</div>
-<a href="example/">Example Subpage</a><div class="orange-bar"></div>
+<a href="example/">Example Subpage</a><a target="_blank" href="example2.png">Example Binary Item <i class="icon icon-external-link"></i></a><div class="orange-bar"></div>
 <div class="blue-header">Related Pages</div>
-<a href="../deploy/">Deploying your Site</a><a href="../formatting/">Formatting Pages</a>
+<a class="current" href="#">» Setting up your Site</a><a href="../formatting/">Formatting Pages</a><a href="../deploy/">Deploying your Site</a><a href="../new/">nanoc-au for Newbies</a>
 </div></div>
 </div>
 <div class="row footer-wrap hidden-print">
